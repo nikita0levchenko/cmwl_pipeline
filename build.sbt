@@ -27,6 +27,7 @@ lazy val commonSettings = Seq(
 
 addCommandAlias("fmt", "all scalafmtSbt scalafmt test:scalafmt")
 addCommandAlias("check", "all scalafmtSbtCheck scalafmtCheck test:scalafmtCheck")
+addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.6")
 
 lazy val root = (project in file("."))
   .settings(

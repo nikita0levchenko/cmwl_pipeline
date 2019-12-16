@@ -7,4 +7,4 @@ RUN sbt clean portal/assembly
 
 FROM openjdk:8-jre-alpine
 WORKDIR /cromwell_pipeline
-COPY --from=builder /cromwell_pipeline/target/scala-2.12/portal.jar /cromwell_pipeline/
+COPY --from=builder /cromwell_pipeline/portal/target/scala-2.12/portal.jar /cromwell_pipeline/

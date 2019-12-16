@@ -37,9 +37,11 @@ services:
       dockerfile: Dockerfile
     command: java -jar portal.jar
     environment:
-      - POSTGRES_USER=pipeline
-      - POSTGRES_PASSWORD=pipeline
-      - POSTGRES_DB=pipeline
+      - CMWL_DB_SERVER_NAME=pipeline_db
+      - CMWL_DB_PORT_NUMBER=5432
+      - CMWL_DB_USER=pipeline
+      - CMWL_DB_PASSWORD=pipeline
+      - CMWL_DB_NAME=pipeline
     ports:
       - 8080:8080
     depends_on:

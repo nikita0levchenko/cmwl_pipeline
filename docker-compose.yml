@@ -29,3 +29,10 @@ services:
       - '/srv/gitlab/config:/etc/gitlab'
       - '/srv/gitlab/logs:/var/log/gitlab'
       - '/srv/gitlab/data:/var/opt/gitlab'
+#
+#  cromwell_pipeline:
+#    container_name: cromwell_pipeline
+#    dockerfile: Dockerfile
+#    command: java -jar cromwell_pipeline.jar
+#    ports:
+#      - 8080:8080

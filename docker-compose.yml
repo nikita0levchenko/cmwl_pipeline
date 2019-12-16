@@ -29,14 +29,16 @@ services:
       - '/srv/gitlab/config:/etc/gitlab'
       - '/srv/gitlab/logs:/var/log/gitlab'
       - '/srv/gitlab/data:/var/opt/gitlab'
-#
-#  cromwell_pipeline:
-#    container_name: cromwell_pipeline
-#    dockerfile: Dockerfile
-#    command: java -jar Cromwell\ pipeline-assembly-0.1.jar
-#    environment:
-#      - POSTGRES_USER=pipeline
-#      - POSTGRES_PASSWORD=pipeline
-#      - POSTGRES_DB=pipeline
-#    ports:
-#      - 8080:8080
+
+  cromwell_pipeline:
+    container_name: cromwell_pipeline
+    build:
+      context: .
+#      dockerfile: Dockerfile
+    command: sbt run
+    environment:
+      - POSTGRES_USER=pipeline
+      - POSTGRES_PASSWORD=pipeline
+      - POSTGRES_DB=pipeline
+    ports:
+      - 8080:8080

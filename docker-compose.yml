@@ -31,14 +31,17 @@ services:
       - '/srv/gitlab/data:/var/opt/gitlab'
 
   cromwell_pipeline:
+    image: hseeberger/scala-sbt:8u222_1.3.5_2.13.1
     container_name: cromwell_pipeline
     build:
       context: .
 #      dockerfile: Dockerfile
-    command: sbt run
+    command: sbt portal/run
     environment:
       - POSTGRES_USER=pipeline
       - POSTGRES_PASSWORD=pipeline
       - POSTGRES_DB=pipeline
     ports:
       - 8080:8080
+#    depends_on:
+#      - db
